@@ -3,12 +3,12 @@ import { StyleSheet, Text, View } from "react-native";
 
 import { COLORS } from "../../constants";
 
-type CookVerificationBannerProps = {
+type VerificationBannerProps = {
   title: string;
   message: string;
 };
 
-export default function CookVerificationBanner({ title, message }: CookVerificationBannerProps) {
+export default function VerificationBanner({ title, message }: VerificationBannerProps) {
   return (
     <View style={styles.container}>
       <View style={styles.leftWrap}>

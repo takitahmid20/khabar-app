@@ -1,19 +1,19 @@
-import { useNavigation } from "@react-navigation/native";
+import { StackActions, useNavigation } from "@react-navigation/native";
 import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { Feather } from "@expo/vector-icons";
 import { useState } from "react";
 import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 
 import {
-  CookAvailabilityCard,
-  CookBottomMenu,
-  type CookBottomMenuTabKey,
-  CookDashboardHeader,
-  CookIncomingOrderCard,
-  CookQuickActionCard,
-  CookRecentOrderRow,
-  CookStatCard,
-  CookVerificationBanner,
+  AvailabilityCard,
+  DashboardBottomMenu,
+  type DashboardBottomMenuTabKey,
+  DashboardSummaryHeader,
+  IncomingOrderCard,
+  QuickActionCard,
+  RecentOrderRow,
+  StatCard,
+  VerificationBanner,
   SectionHeaderRow,
 } from "../components/dashboard";
 import { ScreenContainer } from "../components/layout";
@@ -25,32 +25,40 @@ export default function HomeScreen() {
   const [acceptingOrders, setAcceptingOrders] = useState(true);
   const [hasIncomingOrder, setHasIncomingOrder] = useState(true);
 
-  const handleBottomTabPress = (tabKey: CookBottomMenuTabKey) => {
+  const switchRootScreen = (screenName: keyof RootStackParamList) => {
+    navigation.dispatch(StackActions.replace(screenName));
+  };
+
+  const handleBottomTabPress = (tabKey: DashboardBottomMenuTabKey) => {
     if (tabKey === "dashboard") {
-      navigation.navigate("Home");
       return;
     }
 
     if (tabKey === "orders") {
-      navigation.navigate("CookOrders");
+      switchRootScreen("CookOrders");
+      return;
+    }
+
+    if (tabKey === "menu") {
+      switchRootScreen("CookMenu");
       return;
     }
 
     if (tabKey === "profile") {
-      navigation.navigate("CookName");
+      switchRootScreen("CookName");
     }
   };
 
   return (
     <ScreenContainer style={styles.screen}>
       <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
-        <CookDashboardHeader
+        <DashboardSummaryHeader
           greeting="Good afternoon, Rina"
           hasNotification
           subtitle="Here's what's happening today"
         />
 
-        <CookAvailabilityCard
+        <AvailabilityCard
           active={acceptingOrders}
           onToggle={setAcceptingOrders}
         />
@@ -58,7 +66,7 @@ export default function HomeScreen() {
         <View style={styles.statsGrid}>
           <View style={styles.statsRow}>
             <View style={styles.statsItem}>
-              <CookStatCard
+              <StatCard
                 iconName="package"
                 iconTone="green"
                 subtitle="↑ 3 from yesterday"
@@ -69,7 +77,7 @@ export default function HomeScreen() {
             </View>
 
             <View style={styles.statsItem}>
-              <CookStatCard
+              <StatCard
                 iconName="trending-up"
                 iconTone="yellow"
                 subtitle="After 10% platform fee"
@@ -82,7 +90,7 @@ export default function HomeScreen() {
 
           <View style={styles.statsRow}>
             <View style={styles.statsItem}>
-              <CookStatCard
+              <StatCard
                 iconName="star"
                 iconTone="yellow"
                 subtitle="Based on 234 reviews"
@@ -92,7 +100,7 @@ export default function HomeScreen() {
             </View>
 
             <View style={styles.statsItem}>
-              <CookStatCard
+              <StatCard
                 iconName="clock"
                 iconTone="purple"
                 subtitle="↓ 5 min faster"
@@ -104,7 +112,7 @@ export default function HomeScreen() {
           </View>
         </View>
 
-        <CookVerificationBanner
+        <VerificationBanner
           message="Your documents are under review. Your profile will go live once approved."
           title="Verification Pending"
         />
@@ -120,7 +128,7 @@ export default function HomeScreen() {
         </View>
 
         {hasIncomingOrder ? (
-          <CookIncomingOrderCard
+          <IncomingOrderCard
             amountLabel="Tk 120"
             customerName="Nusrat J."
             locationLabel="Kalabagan, Dhaka"
@@ -138,16 +146,17 @@ export default function HomeScreen() {
         <SectionHeaderRow title="Quick Actions" />
 
         <View style={styles.quickActionsRow}>
-          <CookQuickActionCard
+          <QuickActionCard
             iconName="package"
             iconTone="green"
-            onPress={() => navigation.navigate("CookOrders")}
+            onPress={() => switchRootScreen("CookOrders")}
             subtitle="3 active"
             title="View Orders"
           />
-          <CookQuickActionCard
+          <QuickActionCard
             iconName="book-open"
             iconTone="blue"
+            onPress={() => switchRootScreen("CookMenu")}
             subtitle="Today's menu"
             title="Edit Menu"
           />
@@ -165,13 +174,13 @@ export default function HomeScreen() {
         />
 
         <View style={styles.recentOrdersList}>
-          <CookRecentOrderRow
+          <RecentOrderRow
             amountLabel="Tk 440"
             datetimeLabel="Today, 12:30 PM"
             status="active"
             title="Kacchi Biryani"
           />
-          <CookRecentOrderRow
+          <RecentOrderRow
             amountLabel="Tk 170"
             datetimeLabel="Yesterday, 1:15 PM"
             status="delivered"
@@ -180,7 +189,7 @@ export default function HomeScreen() {
         </View>
       </ScrollView>
 
-      <CookBottomMenu activeKey="dashboard" containerStyle={styles.bottomNav} onTabPress={handleBottomTabPress} />
+      <DashboardBottomMenu activeKey="dashboard" containerStyle={styles.bottomNav} onTabPress={handleBottomTabPress} />
     </ScreenContainer>
   );
 }

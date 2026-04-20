@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import type { StyleProp, TextStyle } from "react-native";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 
 import { COLORS } from "../../constants";
@@ -8,6 +9,8 @@ type SectionHeaderRowProps = {
   actionLabel?: string;
   onActionPress?: () => void;
   rightContent?: ReactNode;
+  titleStyle?: StyleProp<TextStyle>;
+  actionTextStyle?: StyleProp<TextStyle>;
 };
 
 export default function SectionHeaderRow({
@@ -15,16 +18,18 @@ export default function SectionHeaderRow({
   actionLabel,
   onActionPress,
   rightContent,
+  titleStyle,
+  actionTextStyle,
 }: SectionHeaderRowProps) {
   return (
     <View style={styles.container}>
-      <Text allowFontScaling={false} style={styles.title}>{title}</Text>
+      <Text allowFontScaling={false} style={[styles.title, titleStyle]}>{title}</Text>
 
       {rightContent ? (
         <View>{rightContent}</View>
       ) : actionLabel ? (
         <Pressable onPress={onActionPress} style={({ pressed }) => [pressed ? styles.pressed : null]}>
-          <Text allowFontScaling={false} style={styles.actionText}>{actionLabel}</Text>
+          <Text allowFontScaling={false} style={[styles.actionText, actionTextStyle]}>{actionLabel}</Text>
         </Pressable>
       ) : null}
     </View>

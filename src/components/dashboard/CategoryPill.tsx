@@ -1,4 +1,4 @@
-import { Pressable, StyleSheet, Text } from "react-native";
+import { Pressable, StyleSheet, Text, type StyleProp, type TextStyle, type ViewStyle } from "react-native";
 
 import { COLORS } from "../../constants";
 
@@ -6,15 +6,27 @@ type CategoryPillProps = {
   label: string;
   active?: boolean;
   onPress?: () => void;
+  containerStyle?: StyleProp<ViewStyle>;
+  labelStyle?: StyleProp<TextStyle>;
 };
 
-export default function CategoryPill({ label, active, onPress }: CategoryPillProps) {
+export default function CategoryPill({ label, active, onPress, containerStyle, labelStyle }: CategoryPillProps) {
   return (
     <Pressable
       onPress={onPress}
-      style={({ pressed }) => [styles.base, active ? styles.baseActive : styles.baseInactive, pressed ? styles.pressed : null]}
+      style={({ pressed }) => [
+        styles.base,
+        active ? styles.baseActive : styles.baseInactive,
+        pressed ? styles.pressed : null,
+        containerStyle,
+      ]}
     >
-      <Text allowFontScaling={false} style={[styles.label, active ? styles.labelActive : styles.labelInactive]}>{label}</Text>
+      <Text
+        allowFontScaling={false}
+        style={[styles.label, active ? styles.labelActive : styles.labelInactive, labelStyle]}
+      >
+        {label}
+      </Text>
     </Pressable>
   );
 }

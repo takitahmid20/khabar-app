@@ -5,7 +5,7 @@ import { COLORS } from "../../constants";
 
 type FeatherIconName = React.ComponentProps<typeof Feather>["name"];
 
-type CookStatCardProps = {
+type StatCardProps = {
   iconName: FeatherIconName;
   iconTone: "green" | "yellow" | "purple";
   title: string;
@@ -15,7 +15,7 @@ type CookStatCardProps = {
   subtitleTone?: "normal" | "positive";
 };
 
-const ICON_TONES: Record<CookStatCardProps["iconTone"], { background: string; color: string }> = {
+const ICON_TONES: Record<StatCardProps["iconTone"], { background: string; color: string }> = {
   green: {
     background: "#E8F5EC",
     color: COLORS.primarySoft,
@@ -30,7 +30,7 @@ const ICON_TONES: Record<CookStatCardProps["iconTone"], { background: string; co
   },
 };
 
-export default function CookStatCard({
+export default function StatCard({
   iconName,
   iconTone,
   title,
@@ -38,7 +38,7 @@ export default function CookStatCard({
   suffix,
   subtitle,
   subtitleTone = "normal",
-}: CookStatCardProps) {
+}: StatCardProps) {
   const palette = ICON_TONES[iconTone];
 
   return (

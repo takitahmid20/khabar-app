@@ -1,6 +1,7 @@
 export type RootStackParamList = {
   ComponentCatalog: undefined;
   CustomerDashboard: undefined;
+  CookMenu: undefined;
   CookOrders: undefined;
   Home: undefined;
   Login: undefined;

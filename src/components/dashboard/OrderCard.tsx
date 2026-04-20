@@ -3,21 +3,21 @@ import { Pressable, StyleSheet, Text, View } from "react-native";
 
 import { COLORS } from "../../constants";
 
-type CookOrderCardTone = "new" | "preparing" | "outForDelivery" | "delivered";
+type OrderCardTone = "new" | "preparing" | "outForDelivery" | "delivered";
 
-type CookOrderItem = {
+type OrderItem = {
   name: string;
   amountLabel: string;
 };
 
-type CookOrderCardProps = {
+type OrderCardProps = {
   customerName: string;
   code: string;
   paymentLine: string;
-  items: CookOrderItem[];
+  items: OrderItem[];
   locationLabel: string;
   totalLabel: string;
-  tone: CookOrderCardTone;
+  tone: OrderCardTone;
   note?: string;
   primaryActionLabel?: string;
   secondaryActionLabel?: string;
@@ -27,14 +27,14 @@ type CookOrderCardProps = {
   onMessagePress?: () => void;
 };
 
-const TONE_BORDER_COLOR: Record<CookOrderCardTone, string> = {
+const TONE_BORDER_COLOR: Record<OrderCardTone, string> = {
   new: "#EF4444",
   preparing: "#7C3AED",
   outForDelivery: "#F59E0B",
   delivered: COLORS.primarySoft,
 };
 
-export default function CookOrderCard({
+export default function OrderCard({
   customerName,
   code,
   paymentLine,
@@ -49,7 +49,7 @@ export default function CookOrderCard({
   onSecondaryActionPress,
   onCallPress,
   onMessagePress,
-}: CookOrderCardProps) {
+}: OrderCardProps) {
   return (
     <View style={[styles.container, { borderTopColor: TONE_BORDER_COLOR[tone] }]}>
       <View style={styles.headerRow}>

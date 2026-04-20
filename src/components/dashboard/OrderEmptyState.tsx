@@ -3,15 +3,15 @@ import { StyleSheet, Text, View } from "react-native";
 
 import { COLORS } from "../../constants";
 
-type CookOrderEmptyStateProps = {
+type OrderEmptyStateProps = {
   title?: string;
   message?: string;
 };
 
-export default function CookOrderEmptyState({
+export default function OrderEmptyState({
   title = "No new order orders",
   message = "New orders will appear here when customers place them.",
-}: CookOrderEmptyStateProps) {
+}: OrderEmptyStateProps) {
   return (
     <View style={styles.container}>
       <View style={styles.iconWrap}>

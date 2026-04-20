@@ -2,19 +2,19 @@ import { Modal, Pressable, StyleSheet, Text, View } from "react-native";
 
 import { COLORS, SPACING } from "../../constants";
 
-type CookRejectReasonSheetProps = {
+type RejectReasonSheetProps = {
   visible: boolean;
   reasons: string[];
   onClose: () => void;
   onSelectReason: (reason: string) => void;
 };
 
-export default function CookRejectReasonSheet({
+export default function RejectReasonSheet({
   visible,
   reasons,
   onClose,
   onSelectReason,
-}: CookRejectReasonSheetProps) {
+}: RejectReasonSheetProps) {
   return (
     <Modal animationType="fade" onRequestClose={onClose} transparent visible={visible}>
       <View style={styles.overlay}>

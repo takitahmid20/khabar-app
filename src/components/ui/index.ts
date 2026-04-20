@@ -1,6 +1,8 @@
 export { default as Button } from "./Button";
 export { default as BottomNav } from "./BottomNav";
 export type { BottomNavItem } from "./BottomNav";
+export { default as DetailSheetModal } from "./DetailSheetModal";
+export { default as FormSheet } from "./FormSheet";
 export { default as ImageUploadTrigger } from "./ImageUploadTrigger";
 export { default as TextInputField } from "./TextInputField";
 export { default as Card } from "./Card";

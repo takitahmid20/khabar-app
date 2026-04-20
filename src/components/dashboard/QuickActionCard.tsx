@@ -5,7 +5,7 @@ import { COLORS } from "../../constants";
 
 type FeatherIconName = React.ComponentProps<typeof Feather>["name"];
 
-type CookQuickActionCardProps = {
+type QuickActionCardProps = {
   iconName: FeatherIconName;
   iconTone: "green" | "blue";
   title: string;
@@ -13,7 +13,7 @@ type CookQuickActionCardProps = {
   onPress?: () => void;
 };
 
-const ICON_TONES: Record<CookQuickActionCardProps["iconTone"], { background: string; color: string }> = {
+const ICON_TONES: Record<QuickActionCardProps["iconTone"], { background: string; color: string }> = {
   green: {
     background: "#E8F5EC",
     color: COLORS.primarySoft,
@@ -24,13 +24,13 @@ const ICON_TONES: Record<CookQuickActionCardProps["iconTone"], { background: str
   },
 };
 
-export default function CookQuickActionCard({
+export default function QuickActionCard({
   iconName,
   iconTone,
   title,
   subtitle,
   onPress,
-}: CookQuickActionCardProps) {
+}: QuickActionCardProps) {
   const palette = ICON_TONES[iconTone];
 
   return (

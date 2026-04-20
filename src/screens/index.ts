@@ -1,6 +1,7 @@
 export { default as ComponentCatalogScreen } from "./ComponentCatalogScreen";
 export { default as CookIdentityVerificationScreen } from "./CookIdentityVerificationScreen";
 export { default as CookCompleteScreen } from "./CookCompleteScreen";
+export { default as CookMenuScreen } from "./CookMenuScreen";
 export { default as CookNameScreen } from "./CookNameScreen";
 export { default as CookPayoutScreen } from "./CookPayoutScreen";
 export { default as CookProfileDetailsScreen } from "./CookProfileDetailsScreen";

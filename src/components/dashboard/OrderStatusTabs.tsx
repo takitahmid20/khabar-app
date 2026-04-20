@@ -2,22 +2,22 @@ import { Pressable, StyleSheet, Text, View } from "react-native";
 
 import { COLORS } from "../../constants";
 
-export type CookOrderTabKey = "new" | "preparing" | "outForDelivery" | "delivered";
+export type OrderTabKey = "new" | "preparing" | "outForDelivery" | "delivered";
 
-type CookOrderStatusTabsProps = {
-  activeKey: CookOrderTabKey;
-  counts: Record<CookOrderTabKey, number>;
-  onTabPress: (tabKey: CookOrderTabKey) => void;
+type OrderStatusTabsProps = {
+  activeKey: OrderTabKey;
+  counts: Record<OrderTabKey, number>;
+  onTabPress: (tabKey: OrderTabKey) => void;
 };
 
-const TAB_META: Array<{ key: CookOrderTabKey; label: string; color: string }> = [
+const TAB_META: Array<{ key: OrderTabKey; label: string; color: string }> = [
   { key: "new", label: "New", color: "#EF4444" },
   { key: "preparing", label: "Preparing", color: "#7C3AED" },
   { key: "outForDelivery", label: "Out for Delivery", color: "#F59E0B" },
   { key: "delivered", label: "Delivered", color: COLORS.primarySoft },
 ];
 
-export default function CookOrderStatusTabs({ activeKey, counts, onTabPress }: CookOrderStatusTabsProps) {
+export default function OrderStatusTabs({ activeKey, counts, onTabPress }: OrderStatusTabsProps) {
   return (
     <View style={styles.row}>
       {TAB_META.map((tab) => {

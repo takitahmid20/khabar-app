@@ -3,19 +3,19 @@ import { Pressable, StyleSheet, Text, View } from "react-native";
 
 import { COLORS } from "../../constants";
 
-type CookDashboardHeaderProps = {
+type DashboardSummaryHeaderProps = {
   greeting: string;
   subtitle: string;
   hasNotification?: boolean;
   onNotificationPress?: () => void;
 };
 
-export default function CookDashboardHeader({
+export default function DashboardSummaryHeader({
   greeting,
   subtitle,
   hasNotification,
   onNotificationPress,
-}: CookDashboardHeaderProps) {
+}: DashboardSummaryHeaderProps) {
   return (
     <View style={styles.container}>
       <View style={styles.textWrap}>

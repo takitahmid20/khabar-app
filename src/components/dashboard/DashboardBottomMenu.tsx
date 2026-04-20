@@ -2,15 +2,15 @@ import type { StyleProp, ViewStyle } from "react-native";
 
 import { BottomNav, type BottomNavItem } from "../ui";
 
-export type CookBottomMenuTabKey = "dashboard" | "orders" | "menu" | "earnings" | "profile";
+export type DashboardBottomMenuTabKey = "dashboard" | "orders" | "menu" | "earnings" | "profile";
 
-type CookBottomMenuProps = {
-  activeKey: CookBottomMenuTabKey;
-  onTabPress?: (tabKey: CookBottomMenuTabKey) => void;
+type DashboardBottomMenuProps = {
+  activeKey: DashboardBottomMenuTabKey;
+  onTabPress?: (tabKey: DashboardBottomMenuTabKey) => void;
   containerStyle?: StyleProp<ViewStyle>;
 };
 
-const COOK_BOTTOM_NAV_ITEMS: BottomNavItem[] = [
+const DASHBOARD_BOTTOM_NAV_ITEMS: BottomNavItem[] = [
   { key: "dashboard", label: "Dashboard", iconName: "grid" },
   { key: "orders", label: "Orders", iconName: "clipboard" },
   { key: "menu", label: "Menu", iconName: "tool" },
@@ -18,17 +18,17 @@ const COOK_BOTTOM_NAV_ITEMS: BottomNavItem[] = [
   { key: "profile", label: "Profile", iconName: "user" },
 ];
 
-export default function CookBottomMenu({
+export default function DashboardBottomMenu({
   activeKey,
   onTabPress,
   containerStyle,
-}: CookBottomMenuProps) {
+}: DashboardBottomMenuProps) {
   return (
     <BottomNav
       activeKey={activeKey}
       containerStyle={containerStyle}
-      items={COOK_BOTTOM_NAV_ITEMS}
-      onItemPress={(item) => onTabPress?.(item.key as CookBottomMenuTabKey)}
+      items={DASHBOARD_BOTTOM_NAV_ITEMS}
+      onItemPress={(item) => onTabPress?.(item.key as DashboardBottomMenuTabKey)}
     />
   );
 }

@@ -3,23 +3,23 @@ import { Pressable, StyleSheet, Text, View } from "react-native";
 
 import { COLORS } from "../../constants";
 
-type CookRecentOrderStatus = "active" | "delivered";
+type RecentOrderStatus = "active" | "delivered";
 
-type CookRecentOrderRowProps = {
+type RecentOrderRowProps = {
   title: string;
   datetimeLabel: string;
   amountLabel: string;
-  status: CookRecentOrderStatus;
+  status: RecentOrderStatus;
   onPress?: () => void;
 };
 
-export default function CookRecentOrderRow({
+export default function RecentOrderRow({
   title,
   datetimeLabel,
   amountLabel,
   status,
   onPress,
-}: CookRecentOrderRowProps) {
+}: RecentOrderRowProps) {
   const isActive = status === "active";
 
   return (

@@ -5,6 +5,7 @@ import ComponentCatalogScreen from "../screens/ComponentCatalogScreen";
 import CookIdentityVerificationScreen from "../screens/CookIdentityVerificationScreen";
 import CookNameScreen from "../screens/CookNameScreen";
 import CookCompleteScreen from "../screens/CookCompleteScreen";
+import CookMenuScreen from "../screens/CookMenuScreen";
 import CookOrdersScreen from "../screens/CookOrdersScreen";
 import CookPayoutScreen from "../screens/CookPayoutScreen";
 import CookProfileDetailsScreen from "../screens/CookProfileDetailsScreen";
@@ -24,7 +25,10 @@ export default function AppNavigator() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        screenOptions={{ headerShown: false }}
+        screenOptions={{
+          animation: "none",
+          headerShown: false,
+        }}
         initialRouteName="ComponentCatalog"
       >
         <Stack.Screen name="ComponentCatalog" component={ComponentCatalogScreen} />
@@ -38,6 +42,7 @@ export default function AppNavigator() {
         <Stack.Screen name="CookIdentityVerification" component={CookIdentityVerificationScreen} />
         <Stack.Screen name="CookPayout" component={CookPayoutScreen} />
         <Stack.Screen name="CookComplete" component={CookCompleteScreen} />
+        <Stack.Screen name="CookMenu" component={CookMenuScreen} />
         <Stack.Screen name="CookOrders" component={CookOrdersScreen} />
         <Stack.Screen name="CustomerProfile" component={CustomerProfileScreen} />
         <Stack.Screen name="Login" component={LoginScreen} />

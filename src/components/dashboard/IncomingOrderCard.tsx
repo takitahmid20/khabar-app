@@ -2,7 +2,7 @@ import { Pressable, StyleSheet, Text, View } from "react-native";
 
 import { COLORS } from "../../constants";
 
-type CookIncomingOrderCardProps = {
+type IncomingOrderCardProps = {
   customerName: string;
   orderSummary: string;
   locationLabel: string;
@@ -12,7 +12,7 @@ type CookIncomingOrderCardProps = {
   onRejectPress?: () => void;
 };
 
-export default function CookIncomingOrderCard({
+export default function IncomingOrderCard({
   customerName,
   orderSummary,
   locationLabel,
@@ -20,7 +20,7 @@ export default function CookIncomingOrderCard({
   timeLabel,
   onAcceptPress,
   onRejectPress,
-}: CookIncomingOrderCardProps) {
+}: IncomingOrderCardProps) {
   return (
     <View style={styles.container}>
       <View style={styles.headerRow}>

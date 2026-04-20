@@ -3,12 +3,12 @@ import { Pressable, StyleSheet, Switch, Text, View } from "react-native";
 
 import { COLORS } from "../../constants";
 
-type CookAvailabilityCardProps = {
+type AvailabilityCardProps = {
   active: boolean;
   onToggle: (nextValue: boolean) => void;
 };
 
-export default function CookAvailabilityCard({ active, onToggle }: CookAvailabilityCardProps) {
+export default function AvailabilityCard({ active, onToggle }: AvailabilityCardProps) {
   return (
     <Pressable
       onPress={() => onToggle(!active)}
