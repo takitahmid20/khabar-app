@@ -1,7 +1,15 @@
 export const COLORS = {
   primary: "#1B4332",
+  primaryDark: "#0D1F16",
+  primarySoft: "#2D6A4F",
+  primaryLight: "#74C69D",
   background: "#F7F7F7",
+  surfaceAlt: "#F7F8FA",
   white: "#FFFFFF",
   black: "#111111",
   gray: "#888888",
+  textSecondary: "#6B7280",
+  textMuted: "#9CA3AF",
+  border: "#E5E7EB",
+  successSoft: "#D8F3DC",
 } as const;

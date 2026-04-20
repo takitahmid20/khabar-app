@@ -2,29 +2,36 @@ import {
   StyleSheet,
   Text,
   TextInput,
+  type StyleProp,
   type TextInputProps,
+  type TextStyle,
   View,
+  type ViewStyle,
 } from "react-native";
 
 import { COLORS, RADIUS, SPACING } from "../../constants";
 
 type TextInputFieldProps = TextInputProps & {
-  label: string;
+  label?: string;
   error?: string;
+  wrapperStyle?: StyleProp<ViewStyle>;
+  labelStyle?: StyleProp<TextStyle>;
 };
 
 export default function TextInputField({
   label,
   error,
+  wrapperStyle,
+  labelStyle,
   style,
   ...rest
 }: TextInputFieldProps) {
   return (
-    <View style={styles.wrapper}>
-      <Text style={styles.label}>{label}</Text>
+    <View style={[styles.wrapper, wrapperStyle]}>
+      {label ? <Text style={[styles.label, labelStyle]}>{label}</Text> : null}
       <TextInput
         autoCapitalize="none"
-        placeholderTextColor={COLORS.gray}
+        placeholderTextColor={COLORS.textMuted}
         style={[styles.input, style]}
         {...rest}
       />
@@ -44,16 +51,16 @@ const styles = StyleSheet.create({
   },
   input: {
     backgroundColor: COLORS.white,
-    borderColor: COLORS.gray,
-    borderRadius: RADIUS.md,
+    borderColor: COLORS.border,
+    borderRadius: RADIUS.lg,
     borderWidth: 1,
     color: COLORS.black,
-    fontSize: 16,
+    fontSize: 17,
     paddingHorizontal: SPACING.md,
     paddingVertical: SPACING.md,
   },
   errorText: {
-    color: "#D13438",
+    color: COLORS.primary,
     fontSize: 12,
     fontWeight: "500",
   },
