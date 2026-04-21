@@ -11,6 +11,7 @@ export { default as IconButton } from "./IconButton";
 export { default as OptionCardButton } from "./OptionCardButton";
 export { default as TextLinkButton } from "./TextLinkButton";
 export { default as SelectableChip } from "./SelectableChip";
+export { default as StatusToggleCard } from "./StatusToggleCard";
 export { default as StatusBanner } from "./StatusBanner";
 export { default as UploadStatusCard } from "./UploadStatusCard";
 export { default as RadioOptionCard } from "./RadioOptionCard";

@@ -10,7 +10,7 @@ import {
   type ViewStyle,
 } from "react-native";
 
-import { COLORS, RADIUS, SPACING } from "../../constants";
+import { COLORS, SPACING } from "../../constants";
 
 type FeatherIconName = React.ComponentProps<typeof Feather>["name"];
 
@@ -63,11 +63,11 @@ export default function Button({
 const styles = StyleSheet.create({
   button: {
     alignItems: "center",
-    backgroundColor: COLORS.primary,
-    borderRadius: RADIUS.md,
+    backgroundColor: COLORS.primarySoft,
+    borderRadius: 16,
+    height: 56,
     justifyContent: "center",
     paddingHorizontal: SPACING.lg,
-    paddingVertical: SPACING.md,
   },
   fullWidth: {
     alignSelf: "stretch",

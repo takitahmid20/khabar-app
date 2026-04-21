@@ -33,7 +33,6 @@ export default function OtpVerificationScreen() {
   const subtitle = role === "cook" ? "Cook sign in" : "Customer sign in";
   const canVerify = code.length === 6;
   const iconName = method === "mobile" ? "smartphone" : "mail";
-  const nextRoute = role === "cook" ? "CookName" : "CustomerProfile";
   const resendLabel = useMemo(() => {
     if (secondsLeft > 0) {
       return null;
@@ -52,7 +51,14 @@ export default function OtpVerificationScreen() {
       actionDisabled={!canVerify}
       actionLabel="Verify Code"
       bottomNote={<Text style={styles.hintText}>Hint: use any 6 digits for this demo</Text>}
-      onActionPress={() => navigation.navigate(nextRoute)}
+      onActionPress={() => {
+        if (role === "cook") {
+          navigation.navigate("CookName");
+          return;
+        }
+
+        navigation.navigate("CustomerProfile", { mode: "onboarding" });
+      }}
       onBack={() => navigation.goBack()}
       progress={0.64}
       topSubtitle={subtitle}

@@ -164,7 +164,7 @@ export default function CustomerDashboardScreen() {
       key: "profile",
       label: "Profile",
       iconName: "user",
-      onPress: () => navigation.navigate("CustomerProfile"),
+      onPress: () => navigation.navigate("CustomerProfile", { mode: "profile" }),
     },
   ];
 
@@ -180,7 +180,10 @@ export default function CustomerDashboardScreen() {
           location="Dhanmondi, Dhaka"
         />
 
-        <DashboardSearchBar placeholder="Search cooks, dishes, cuisines..." />
+        <DashboardSearchBar
+          onPress={() => navigation.navigate("CustomerSearch")}
+          placeholder="Search cooks, dishes, cuisines..."
+        />
 
         <ScrollView
           contentContainerStyle={styles.categoriesRow}

@@ -5,7 +5,6 @@ import { useState } from "react";
 import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 
 import {
-  AvailabilityCard,
   DashboardBottomMenu,
   type DashboardBottomMenuTabKey,
   DashboardSummaryHeader,
@@ -17,6 +16,7 @@ import {
   SectionHeaderRow,
 } from "../components/dashboard";
 import { ScreenContainer } from "../components/layout";
+import { StatusToggleCard } from "../components/ui";
 import { COLORS, SPACING } from "../constants";
 import type { RootStackParamList } from "../types";
 
@@ -44,8 +44,13 @@ export default function HomeScreen() {
       return;
     }
 
+    if (tabKey === "earnings") {
+      switchRootScreen("CookEarnings");
+      return;
+    }
+
     if (tabKey === "profile") {
-      switchRootScreen("CookName");
+      switchRootScreen("CookProfile");
     }
   };
 
@@ -58,9 +63,39 @@ export default function HomeScreen() {
           subtitle="Here's what's happening today"
         />
 
-        <AvailabilityCard
-          active={acceptingOrders}
+        <StatusToggleCard
+          containerStyle={styles.availabilityCard}
+          disabledState={{
+            containerBackgroundColor: "#E8F5EC",
+            containerBorderColor: "#74C69D",
+            iconBackgroundColor: "#CBE8D5",
+            iconColor: "#2D6A4F",
+            iconName: "pause",
+            subtitle: "Tap to accept",
+            subtitleColor: "#5AAE7E",
+            title: "Paused",
+            titleColor: "#1F2937",
+            trackColor: "#2D6A4F",
+          }}
+          enabled={acceptingOrders}
+          enabledState={{
+            containerBackgroundColor: "#E8F5EC",
+            containerBorderColor: "#74C69D",
+            iconBackgroundColor: "#CBE8D5",
+            iconColor: "#2D6A4F",
+            iconName: "play",
+            subtitle: "Tap to pause",
+            subtitleColor: "#5AAE7E",
+            title: "Accepting Orders",
+            titleColor: "#1F2937",
+            trackColor: "#2D6A4F",
+          }}
+          iconContainerSize={58}
+          iconSize={20}
           onToggle={setAcceptingOrders}
+          pressToToggle
+          subtitleStyle={styles.availabilitySubtitleText}
+          titleStyle={styles.availabilityTitleText}
         />
 
         <View style={styles.statsGrid}>
@@ -205,6 +240,22 @@ const styles = StyleSheet.create({
     gap: 14,
     paddingBottom: SPACING.lg,
     paddingHorizontal: SPACING.lg,
+  },
+  availabilityCard: {
+    borderRadius: 20,
+    borderWidth: 1.2,
+    paddingHorizontal: 14,
+    paddingVertical: 12,
+  },
+  availabilityTitleText: {
+    fontSize: 20 / 1.25,
+    fontWeight: "800",
+    lineHeight: 20,
+  },
+  availabilitySubtitleText: {
+    fontSize: 15 / 1.25,
+    fontWeight: "500",
+    lineHeight: 18,
   },
   statsGrid: {
     gap: 10,

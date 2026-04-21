@@ -183,8 +183,13 @@ export default function CookMenuScreen() {
       return;
     }
 
+    if (tabKey === "earnings") {
+      switchRootScreen("CookEarnings");
+      return;
+    }
+
     if (tabKey === "profile") {
-      switchRootScreen("CookName");
+      switchRootScreen("CookProfile");
     }
   };
 

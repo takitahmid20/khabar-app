@@ -280,8 +280,13 @@ export default function CookOrdersScreen() {
       return;
     }
 
+    if (tabKey === "earnings") {
+      switchRootScreen("CookEarnings");
+      return;
+    }
+
     if (tabKey === "profile") {
-      switchRootScreen("CookName");
+      switchRootScreen("CookProfile");
     }
   };
 

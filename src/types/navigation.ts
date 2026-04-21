@@ -1,6 +1,9 @@
 export type RootStackParamList = {
   ComponentCatalog: undefined;
   CustomerDashboard: undefined;
+  CustomerSearch: undefined;
+  CookEarnings: undefined;
+  CookProfile: undefined;
   CookMenu: undefined;
   CookOrders: undefined;
   Home: undefined;
@@ -18,5 +21,9 @@ export type RootStackParamList = {
   CookIdentityVerification: undefined;
   CookPayout: undefined;
   CookComplete: undefined;
-  CustomerProfile: undefined;
+  CustomerProfile:
+    | {
+      mode?: "onboarding" | "profile";
+    }
+    | undefined;
 };

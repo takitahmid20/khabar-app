@@ -9,7 +9,7 @@ import {
   type ViewStyle,
 } from "react-native";
 
-import { COLORS, RADIUS, SPACING } from "../../constants";
+import { COLORS, SPACING } from "../../constants";
 
 type TextInputFieldProps = TextInputProps & {
   label?: string;
@@ -52,12 +52,12 @@ const styles = StyleSheet.create({
   input: {
     backgroundColor: COLORS.white,
     borderColor: COLORS.border,
-    borderRadius: RADIUS.lg,
+    borderRadius: 16,
     borderWidth: 1,
     color: COLORS.black,
     fontSize: 17,
+    height: 56,
     paddingHorizontal: SPACING.md,
-    paddingVertical: SPACING.md,
   },
   errorText: {
     color: COLORS.primary,
