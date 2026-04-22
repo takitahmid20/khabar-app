@@ -137,10 +137,10 @@ export default function CustomerProfileScreen() {
 
   const profileStats = useMemo(
     () => [
-      { key: "orders", value: "24", label: "Orders" },
-      { key: "reviews", value: "4", label: "Reviews" },
-      { key: "favourites", value: "3", label: "Favourites" },
-      { key: "wallet", value: "Tk 50", label: "Wallet" },
+      { label: "orders", value: "24", hint: "Orders" },
+      { label: "reviews", value: "4", hint: "Reviews" },
+      { label: "favourites", value: "3", hint: "Favourites" },
+      { label: "wallet", value: "Tk 50", hint: "Wallet" },
     ],
     [],
   );

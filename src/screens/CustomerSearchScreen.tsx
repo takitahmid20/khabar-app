@@ -21,6 +21,7 @@ type RatingFilterOption = "Any" | "4+" | "4.5+" | "4.8+";
 
 type SearchCook = {
   key: string;
+  cookId: string;
   dishImageUri: string;
   avatarUri: string;
   cookName: string;
@@ -62,6 +63,7 @@ const RECENT_SEARCHES = ["Kacchi Biryani", "Rina Begum", "Halim near Dhanmondi"]
 const SEARCH_COOKS: SearchCook[] = [
   {
     key: "search-rina",
+    cookId: "rina",
     dishImageUri: "https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=700&q=60",
     avatarUri: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=60",
     cookName: "Rina Begum",
@@ -79,6 +81,7 @@ const SEARCH_COOKS: SearchCook[] = [
   },
   {
     key: "search-farida",
+    cookId: "farida",
     dishImageUri: "https://images.unsplash.com/photo-1517244683847-7456b63c5969?auto=format&fit=crop&w=700&q=60",
     avatarUri: "https://images.unsplash.com/photo-1542204625-de293a42d236?auto=format&fit=crop&w=200&q=60",
     cookName: "Farida Ahmed",
@@ -96,6 +99,7 @@ const SEARCH_COOKS: SearchCook[] = [
   },
   {
     key: "search-ayesha",
+    cookId: "ayesha",
     dishImageUri: "https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?auto=format&fit=crop&w=700&q=60",
     avatarUri: "https://images.unsplash.com/photo-1554151228-14d9def656e4?auto=format&fit=crop&w=200&q=60",
     cookName: "Ayesha Khan",
@@ -113,6 +117,7 @@ const SEARCH_COOKS: SearchCook[] = [
   },
   {
     key: "search-sumiya",
+    cookId: "sumiya",
     dishImageUri: "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=700&q=60",
     avatarUri: "https://images.unsplash.com/photo-1541778480-4282c7c2b70f?auto=format&fit=crop&w=200&q=60",
     cookName: "Sumiya Islam",
@@ -321,6 +326,7 @@ export default function CustomerSearchScreen() {
                   distanceLabel={cook.distanceLabel}
                   etaLabel={cook.etaLabel}
                   key={cook.key}
+                  onPress={() => navigation.navigate("CustomerCookDetails", { cookId: cook.cookId })}
                   priceLabel={cook.priceLabel}
                   rating={cook.ratingValue.toFixed(1)}
                   reviewCount={cook.reviewCount}

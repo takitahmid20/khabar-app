@@ -27,6 +27,7 @@ type QuickFilter = {
 
 type TrendingCook = {
   key: string;
+  cookId: string;
   cookName: string;
   areaLabel: string;
   ratingLabel: string;
@@ -35,6 +36,7 @@ type TrendingCook = {
 
 type NearbyCook = {
   key: string;
+  cookId: string;
   dishImageUri: string;
   avatarUri: string;
   cookName: string;
@@ -70,6 +72,7 @@ const QUICK_FILTERS: QuickFilter[] = [
 const TRENDING_COOKS: TrendingCook[] = [
   {
     key: "rina",
+    cookId: "rina",
     cookName: "Rina Begum",
     areaLabel: "Dhanmondi · 1.2 km",
     ratingLabel: "4.8",
@@ -77,6 +80,7 @@ const TRENDING_COOKS: TrendingCook[] = [
   },
   {
     key: "farida",
+    cookId: "farida",
     cookName: "Farida Ahmed",
     areaLabel: "Gulshan · 2.4 km",
     ratingLabel: "4.9",
@@ -87,6 +91,7 @@ const TRENDING_COOKS: TrendingCook[] = [
 const NEARBY_COOKS: NearbyCook[] = [
   {
     key: "nearby-rina",
+    cookId: "rina",
     dishImageUri: "https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=700&q=60",
     avatarUri: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=60",
     cookName: "Rina Begum",
@@ -100,6 +105,7 @@ const NEARBY_COOKS: NearbyCook[] = [
   },
   {
     key: "nearby-farida",
+    cookId: "farida",
     dishImageUri: "https://images.unsplash.com/photo-1517244683847-7456b63c5969?auto=format&fit=crop&w=700&q=60",
     avatarUri: "https://images.unsplash.com/photo-1542204625-de293a42d236?auto=format&fit=crop&w=200&q=60",
     cookName: "Farida Ahmed",
@@ -113,6 +119,7 @@ const NEARBY_COOKS: NearbyCook[] = [
   },
   {
     key: "nearby-ayesha",
+    cookId: "ayesha",
     dishImageUri: "https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?auto=format&fit=crop&w=700&q=60",
     avatarUri: "https://images.unsplash.com/photo-1554151228-14d9def656e4?auto=format&fit=crop&w=200&q=60",
     cookName: "Ayesha Khan",
@@ -126,6 +133,7 @@ const NEARBY_COOKS: NearbyCook[] = [
   },
   {
     key: "nearby-sumiya",
+    cookId: "sumiya",
     dishImageUri: "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=700&q=60",
     avatarUri: "https://images.unsplash.com/photo-1541778480-4282c7c2b70f?auto=format&fit=crop&w=200&q=60",
     cookName: "Sumiaya Islam",
@@ -233,6 +241,7 @@ export default function CustomerDashboardScreen() {
               areaLabel={cook.areaLabel}
               cookName={cook.cookName}
               foodImageUri={cook.foodImageUri}
+              onPress={() => navigation.navigate("CustomerCookDetails", { cookId: cook.cookId })}
               ratingLabel={cook.ratingLabel}
             />
           ))}
@@ -259,6 +268,7 @@ export default function CustomerDashboardScreen() {
               dishImageUri={cook.dishImageUri}
               distanceLabel={cook.distanceLabel}
               etaLabel={cook.etaLabel}
+              onPress={() => navigation.navigate("CustomerCookDetails", { cookId: cook.cookId })}
               priceLabel={cook.priceLabel}
               rating={cook.rating}
               reviewCount={cook.reviewCount}

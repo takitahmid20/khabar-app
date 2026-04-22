@@ -17,3 +17,4 @@ export { default as UploadStatusCard } from "./UploadStatusCard";
 export { default as RadioOptionCard } from "./RadioOptionCard";
 export { default as VerificationCodeInput } from "./VerificationCodeInput";
 export { default as StepProgressHeader } from "./StepProgressHeader";
+export { default as PromoCodeField } from "./PromoCodeField";

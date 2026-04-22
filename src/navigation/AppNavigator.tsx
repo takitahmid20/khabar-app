@@ -13,7 +13,11 @@ import CookProfileScreen from "../screens/CookProfileScreen";
 import CookProfileDetailsScreen from "../screens/CookProfileDetailsScreen";
 import CookServiceAreaScreen from "../screens/CookServiceAreaScreen";
 import CookSpecialtiesScreen from "../screens/CookSpecialtiesScreen";
+import CustomerCookDetailsScreen from "../screens/CustomerCookDetailsScreen";
 import CustomerDashboardScreen from "../screens/CustomerDashboardScreen";
+import CustomerCheckoutScreen from "../screens/CustomerCheckoutScreen";
+import CustomerCheckoutDetailsScreen from "../screens/CustomerCheckoutDetailsScreen";
+import CustomerMonthlyPlanScreen from "../screens/CustomerMonthlyPlanScreen";
 import CustomerSearchScreen from "../screens/CustomerSearchScreen";
 import CustomerProfileScreen from "../screens/CustomerProfileScreen";
 import HomeScreen from "../screens/HomeScreen";
@@ -37,6 +41,10 @@ export default function AppNavigator() {
         <Stack.Screen name="ComponentCatalog" component={ComponentCatalogScreen} />
         <Stack.Screen name="CustomerDashboard" component={CustomerDashboardScreen} />
         <Stack.Screen name="CustomerSearch" component={CustomerSearchScreen} />
+        <Stack.Screen name="CustomerCookDetails" component={CustomerCookDetailsScreen} />
+        <Stack.Screen name="CustomerMonthlyPlan" component={CustomerMonthlyPlanScreen} />
+        <Stack.Screen name="CustomerCheckout" component={CustomerCheckoutScreen} />
+        <Stack.Screen name="CustomerCheckoutDetails" component={CustomerCheckoutDetailsScreen} />
         <Stack.Screen name="Signup" component={SignupScreen} />
         <Stack.Screen name="OtpVerification" component={OtpVerificationScreen} />
         <Stack.Screen name="CookName" component={CookNameScreen} />
